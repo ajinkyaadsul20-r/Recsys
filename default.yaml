@@ -1,0 +1,19 @@
+seed: 42
+k: 10                    # cut-off for model selection (NDCG@k)
+artifacts_dir: artifacts
+
+data:                    # synthetic implicit-feedback generator (see data.py)
+  n_users: 2000
+  n_items: 800
+  n_categories: 8
+  mean_interactions: 30
+
+models:
+  popularity: {}
+  item_knn:
+    neighbors: [10, 20, 50, 100]
+  als:
+    factors: [8, 16, 32]
+    reg: [1.0, 10.0, 30.0]
+    alpha: [1.0, 5.0, 20.0]
+    iterations: 15
